@@ -1,47 +1,35 @@
 [site]
-title = "Jiale Liu"
-description = "PhD student at the University of Example."
+title = "钟杰"
+description = "成都中医药大学医学信息工程本科生 | 副教授助理 | 中医药溯源研究"
 favicon = "/favicon.svg"
-last_updated = "November 18, 2025"
+last_updated = "May 2026"
 
 [author]
-name = "Jiale Liu"
-title = "PhD Student"
-institution = "University of Example"
-avatar = "/bio.jpg"
+name = "钟杰"
+title = "Undergraduate & Research Assistant"
+institution = "Chengdu University of TCM"
+avatar = "/tom.jpg"
 
 [social]
-# Contact information (leave blank or delete to hide)
-
-email = "john.doe@example.com"
-location = "City, Country"
-location_url = "https://maps.google.com"
+email = "3473511390@qq.com"
+location = "Chengdu, Sichuan"
 location_details = [
-  "Room 123, Science Building,",
-  "University Avenue, City, Country"
+  "Chengdu University of TCM, Wenjiang Campus",
+  "Medical Information Engineering, Class of 2025"
 ]
-google_scholar = "https://scholar.google.com"
-orcid = "https://orcid.org"
-github = "https://github.com"
-linkedin = "https://linkedin.com"
+github = "https://github.com/jaylove-for"
 
 [features]
-# Show a like button on the about page
-enable_likes = true
-
-# Display all subpages on a single page
+enable_likes = false
 enable_one_page_mode = false
 
 [i18n]
 enabled = true
 locales = ["zh", "en"]
-default_locale = "en"
-# "auto" means the locale will be determined by the browser's language setting, "fixed" means the locale will be fixed to the default locale (but can be switched still, if you want to disable, set "enable=false")
-mode = "auto"
-fixed_locale = "en"
-# If true, PRISM will remember user's language preference in browser's localStorage
+default_locale = "zh"
+mode = "fixed"
+fixed_locale = "zh"
 persist = true
-# Show a language switcher on the top right corner
 switcher = true
 
 [i18n.labels]
@@ -55,16 +43,10 @@ target = "about"
 href = "/"
 
 [[navigation]]
-title = "Publications"
+title = "Projects"
 type = "page"
-target = "publications"
-href = "/publications"
-
-[[navigation]]
-title = "Teaching"
-type = "page"
-target = "teaching"
-href = "/teaching"
+target = "projects"
+href = "/projects"
 
 [[navigation]]
 title = "Awards"
@@ -73,10 +55,10 @@ target = "awards"
 href = "/awards"
 
 [[navigation]]
-title = "Services"
+title = "Publications"
 type = "page"
-target = "services"
-href = "/services"
+target = "publications"
+href = "/publications"
 
 [[navigation]]
 title = "CV"

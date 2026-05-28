@@ -1,0 +1,54 @@
+type = "card"
+title = "项目经历"
+description = "正在参与和已完成的项目与竞赛。"
+
+[[items]]
+title = "个人学术主页"
+date = "2026-05"
+subtitle = "Next.js · TypeScript · Tailwind CSS"
+content = """
+基于 PRISM 开源项目个性化改造的个人学术展示网站。
+
+- 使用 Next.js 20 + React 19 + TypeScript + Tailwind CSS 4
+- 中英文双语、暗色模式、响应式布局
+- 部署于 GitHub Pages
+"""
+
+[[items]]
+title = "中医药溯源 Web 应用"
+date = "2025-12 – 至今"
+subtitle = "React · Node.js · Supabase"
+content = """
+参与中医药溯源科研团队的全栈 Web 应用开发。
+
+- 独立负责前端架构与开发
+- 中药材全程溯源信息管理系统
+- 技术栈：React + TypeScript + Node.js + Supabase
+"""
+
+[[items]]
+title = "三创赛 — 队长"
+date = "参赛中"
+subtitle = "全国大学生创新、创意及创业挑战赛"
+content = """
+作为队长带领团队参加三创赛，负责项目整体规划与技术方案设计。
+"""
+
+[[items]]
+title = "挑战杯 · 国创 · 大创 · 科技园 · 计算机设计大赛"
+date = "参赛中"
+subtitle = "多项学科竞赛同步推进"
+content = """
+同时参与挑战杯、全国大学生创新创业训练计划（国创）、大学生创新创业项目（大创）、科技园孵化项目、中国大学生计算机设计大赛等多项学科竞赛。
+"""
+
+[[items]]
+title = "抖音中医药 × AI 自媒体"
+date = "2025-10 – 至今"
+subtitle = "内容创作 · AI 工具应用"
+content = """
+运营中医药与 AI 技术交叉领域的自媒体账号，探索传统医学内容的创新表达。
+
+- 独立策划、拍摄、剪辑
+- AI 辅助中医药知识科普内容创作
+"""

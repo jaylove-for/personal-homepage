@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRISM 项目分析报告 — 个人学术主页</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --text: #292524;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --accent: #1d4ed8;
+    --accent-light: #eff6ff;
+    --tag-bg: #f1f5f9;
+    --tag-text: #475569;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1917;
+      --card: #292524;
+      --text: #e7e5e4;
+      --muted: #a8a29e;
+      --border: #44403c;
+      --accent: #60a5fa;
+      --accent-light: #1e293b;
+      --tag-bg: #334155;
+      --tag-text: #cbd5e1;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  h2 { font-size: 20px; font-weight: 600; margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 2px 4px 2px 0;
+  }
+  .score { font-size: 56px; font-weight: 800; color: var(--accent); }
+  .mindmap { font-family: "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 13px; line-height: 1.8; white-space: pre; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  th { font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  .highlight { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 14px 0; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-right: 16px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .bar-wrap { background: var(--border); border-radius: 6px; height: 8px; margin: 6px 0 12px; overflow: hidden; }
+  .bar-fill { background: var(--accent); height: 100%; border-radius: 6px; }
+  .step { display: flex; gap: 14px; margin: 12px 0; }
+  .step-num { flex-shrink: 0; width: 28px; height: 28px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<p style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">项目分析报告 · 2026-05-28</p>
+<h1>PRISM — 个人学术主页</h1>
+<p class="subtitle">源项目: github.com/xyjoey/PRISM &nbsp;|&nbsp; 许可证: MIT &nbsp;|&nbsp; 版本: 1.3.3</p>
+
+<!-- 评分卡片 -->
+<div class="card" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+  <div style="text-align:center;">
+    <div class="score">87<span style="font-size:24px;">/100</span></div>
+    <div style="font-size:12px;color:var(--muted);">预估综合评分</div>
+  </div>
+  <div style="flex:1;min-width:200px;">
+    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:2px;"><span>简历竞争力</span><span>90</span></div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:2px;"><span>友好度（新手）</span><span>78</span></div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:78%"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:2px;"><span>视觉设计</span><span>88</span></div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:88%"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:2px;"><span>可扩展性</span><span>92</span></div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:92%"></div></div>
+  </div>
+</div>
+
+<!-- 一句话概述 -->
+<div class="highlight">
+  <strong>一句话：</strong>PRISM 是一个面向研究人员和学者的<strong>配置驱动型</strong>个人主页模板。你只需要编辑 TOML/Markdown 文本文件，就能生成一个带论文列表、简历、中英文切换的现代学术网站。核心代码不需要改动。
+</div>
+
+<h2>1. 技术栈</h2>
+<div class="card">
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+    <span class="tag">Next.js 15.3</span><span class="tag">React 19</span><span class="tag">TypeScript 5</span><span class="tag">Tailwind CSS 4</span>
+    <span class="tag">Framer Motion</span><span class="tag">Zustand</span><span class="tag">smol-toml</span><span class="tag">react-markdown</span>
+    <span class="tag">BibTeX Parser</span><span class="tag">next-themes</span><span class="tag">Lucide Icons</span>
+  </div>
+  <table>
+    <tr><th>层级</th><th>技术</th><th>作用</th></tr>
+    <tr><td>框架</td><td>Next.js 15 (App Router)</td><td>页面路由、静态生成、SEO</td></tr>
+    <tr><td>UI 库</td><td>React 19 + Tailwind CSS 4</td><td>组件渲染、响应式样式</td></tr>
+    <tr><td>语言</td><td>TypeScript</td><td>类型安全，减少运行时错误</td></tr>
+    <tr><td>动画</td><td>Framer Motion</td><td>页面过渡、hover 动效</td></tr>
+    <tr><td>状态管理</td><td>Zustand</td><td>主题切换、语言切换状态</td></tr>
+    <tr><td>内容格式</td><td>TOML + Markdown + BibTeX</td><td>你只需编辑这些文本文件</td></tr>
+    <tr><td>部署</td><td>静态导出 → GitHub Pages / Cloudflare</td><td>免费、零服务器</td></tr>
+  </table>
+</div>
+
+<h2>2. 架构思维导图</h2>
+<div class="card">
+<div class="mindmap">
+PRISM/
+│
+├── 📁 content/          ← ★ 你唯一需要修改的地方
+│   ├── config.toml         网站全局设置（标题、姓名、社交链接、导航菜单）
+│   ├── about.toml          首页布局（各版块排列顺序）
+│   ├── bio.md              个人简介（Markdown 格式）
+│   ├── publications.bib    论文数据（从 Google Scholar 导出）
+│   ├── publications.toml   论文页配置
+│   ├── news.toml           学术动态
+│   ├── cv.md / cv.toml    简历
+│   ├── teaching.toml       教学经历
+│   ├── awards.toml         获奖荣誉
+│   └── services.toml       学术服务
+│
+├── 📁 content_zh/       ← 中文版内容（结构同上）
+│
+├── 📁 src/
+│   ├── app/
+│   │   ├── layout.tsx      全局布局（导航栏、页脚、主题、语言注入）
+│   │   ├── page.tsx         首页逻辑（读取 TOML → 渲染组件）
+│   │   └── [slug]/page.tsx  子页面路由（/publications, /cv …）
+│   ├── components/
+│   │   ├── home/           首页组件（Profile, About, News, Publications）
+│   │   ├── layout/         导航栏 / 页脚
+│   │   ├── pages/          通用页面组件（TextPage, CardPage）
+│   │   ├── publications/   论文列表 + BibTeX 格式化
+│   │   └── ui/             主题切换、语言切换、Provider
+│   ├── lib/
+│   │   ├── config.ts       读取 config.toml 的核心函数
+│   │   ├── content.ts      读取 MD/Bib/TOML 文件
+│   │   ├── bibtexParser.ts 解析 BibTeX 论文数据
+│   │   └── i18n/           国际化逻辑
+│   └── types/              TypeScript 类型定义
+│
+├── 📁 public/            静态资源（头像、图标）
+├── next.config.ts        Next.js 配置
+├── tailwind.config.mjs   样式配置
+└── package.json          项目依赖
+</div>
+</div>
+
+<h2>3. 数据流 — 从文件到页面</h2>
+<div class="card">
+  <div style="text-align:center;font-size:14px;line-height:2.2;">
+    <div style="display:inline-block;background:var(--tag-bg);padding:6px 18px;border-radius:6px;margin:4px;">
+      📝 编辑 <code>content/config.toml</code>
+    </div>
+    <span style="margin:0 8px;color:var(--muted);">→</span>
+    <div style="display:inline-block;background:var(--tag-bg);padding:6px 18px;border-radius:6px;margin:4px;">
+      🔧 <code>src/lib/config.ts</code><br><small>fs.readFileSync + TOML 解析</small>
+    </div>
+    <span style="margin:0 8px;color:var(--muted);">→</span>
+    <div style="display:inline-block;background:var(--tag-bg);padding:6px 18px;border-radius:6px;margin:4px;">
+      🧩 <code>src/app/page.tsx</code><br><small>数据 → 组件 Props</small>
+    </div>
+    <span style="margin:0 8px;color:var(--muted);">→</span>
+    <div style="display:inline-block;background:var(--accent-light);padding:6px 18px;border-radius:6px;margin:4px;border:1px solid var(--accent);">
+      🖥️ 静态 HTML 页面<br><small>直接部署、极快加载</small>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-top:16px;text-align:center;">
+    核心原理：Next.js 在 <strong>构建时</strong>（npm run build）读取所有 TOML/MD/Bib 文件，预渲染成纯静态 HTML。<br>浏览器访问时不需要任何服务器，只是读取 HTML 文件。
+  </p>
+</div>
+
+<h2>4. 关键知识点讲解</h2>
+
+<div class="card">
+  <h3>4.1 配置驱动 (Configuration-Driven)</h3>
+  <p>传统建站：改页面内容 → 改代码 → 重新部署。<br>PRISM 方式：改 TOML 文件 → 重新部署。代码原封不动。</p>
+  <div class="highlight">
+    <strong>举例：</strong>你想在导航栏加一个"项目"页面，只需要：<br>
+    ① 新建 <code>content/projects.toml</code> 文件<br>
+    ② 在 <code>config.toml</code> 的 <code>[[navigation]]</code> 里加一条<br>
+    ③ 完成。不需要碰任何 <code>.tsx</code> 代码。
+  </div>
+</div>
+
+<div class="card">
+  <h3>4.2 静态站点生成 (SSG)</h3>
+  <p>PRISM 使用 Next.js 的静态导出（Static Export）功能。所有页面在 <code>npm run build</code> 时预渲染为纯 HTML/CSS/JS 文件，输出到 <code>out/</code> 目录。</p>
+  <p style="font-size:13px;color:var(--muted);margin-top:8px;">好处：加载极快（无服务端渲染延迟）、免费部署（GitHub Pages）、无数据库维护成本。</p>
+</div>
+
+<div class="card">
+  <h3>4.3 国际化 (i18n) 机制</h3>
+  <p>PRISM 通过两个目录实现中英文切换：</p>
+  <ul>
+    <li><code>content/</code> — 默认语言（英文）</li>
+    <li><code>content_zh/</code> — 中文内容</li>
+  </ul>
+  <p>读取时，系统先查找对应语言的文件，找不到就回退到默认。所以你<strong>不需要两份完整的文件</strong>，只翻译不同的部分即可。</p>
+</div>
+
+<div class="two-col">
+  <div class="card">
+    <h3>4.4 BibTeX → 论文列表</h3>
+    <p>从 Google Scholar / Zotero 导出 <code>.bib</code> 文件，放到 <code>content/</code> 目录。PRISM 自动解析并生成带搜索、过滤的论文列表页面。支持按年份、类型筛选。</p>
+  </div>
+  <div class="card">
+    <h3>4.5 动态路由 [slug]</h3>
+    <p><code>src/app/[slug]/page.tsx</code> 是一个通配路由。访问 <code>/cv</code> 时，Next.js 读取 <code>content/cv.toml</code>，根据配置的 <code>type</code>（text/card/publication）渲染对应组件。</p>
+  </div>
+</div>
+
+<h2>5. 个性化改编计划</h2>
+<div class="card">
+  <p style="margin-bottom:16px;">以下是将 PRISM 改造为<strong>钟杰个人学术主页</strong>的具体步骤：</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div>
+      <strong>修改全局配置</strong>
+      <p style="font-size:14px;color:var(--muted);">编辑 <code>content/config.toml</code>：名字 → 钟杰，Title → 医学信息工程本科生 / 副教授助理，机构 → 成都中医药大学，社交链接 → GitHub / 抖音</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div>
+      <strong>撰写个人简介</strong>
+      <p style="font-size:14px;color:var(--muted);">编辑 <code>content/bio.md</code>：介绍自己的学术背景、研究方向（中医药信息化）、科研经历（副教授助理、论文参与）</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div>
+      <strong>添加论文数据</strong>
+      <p style="font-size:14px;color:var(--muted);">你的三作和四作论文信息写入 <code>content/publications.bib</code></p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div>
+      <strong>定制导航菜单</strong>
+      <p style="font-size:14px;color:var(--muted);">精简导航：关于我 → 论文 → 项目 → 简历，去掉 Teaching/Services 等不适用模块</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div>
+      <strong>中文优先</strong>
+      <p style="font-size:14px;color:var(--muted);">设置 default_locale = "zh"，让中文成为默认语言</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div>
+      <strong>视觉微调</strong>
+      <p style="font-size:14px;color:var(--muted);">调整 Tailwind 主题色，加入中医药元素配色（如墨绿/暖棕基调）</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">7</div>
+    <div>
+      <strong>部署上线</strong>
+      <p style="font-size:14px;color:var(--muted);">GitHub Pages 免费部署，绑定自定义域名（可选）</p>
+    </div>
+  </div>
+</div>
+
+<h2>6. 亮点与潜力</h2>
+<div class="grid">
+  <div class="card">
+    <h3>✅ 亮点</h3>
+    <ul>
+      <li>配置驱动，改内容不改代码</li>
+      <li>中英文原生支持，学术界标配</li>
+      <li>BibTeX 自动解析，论文管理优雅</li>
+      <li>暗色模式 / 响应式 / SEO 开箱即用</li>
+      <li>Next.js + TypeScript 技术栈简历含金量高</li>
+      <li>MIT 许可证，完全自由使用</li>
+      <li>静态导出，GitHub Pages 免费托管</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🔮 扩展潜力</h3>
+    <ul>
+      <li>增加"项目展示"卡片页面（用 card 类型）</li>
+      <li>嵌入抖音视频或 B站 内容</li>
+      <li>接入 GitHub API 自动展示贡献热力图</li>
+      <li>加入博客模块（静态 Markdown 博客）</li>
+      <li>添加访问量统计（不蒜子 / Google Analytics）</li>
+      <li>自定义域名绑定（如 zhongjie.me）</li>
+    </ul>
+  </div>
+</div>
+
+<h2>7. 环境要求 & 快速启动</h2>
+<div class="card">
+  <table>
+    <tr><th>依赖</th><th>版本要求</th><th>你的设备状态</th></tr>
+    <tr><td>Node.js</td><td>≥ 22.0.0</td><td>需检查</td></tr>
+    <tr><td>包管理器</td><td>npm / pnpm / yarn</td><td>npm 已内置</td></tr>
+    <tr><td>Git</td><td>任意版本</td><td>已安装</td></tr>
+  </table>
+  <div style="margin-top:14px;font-family:monospace;font-size:13px;background:var(--tag-bg);padding:12px 16px;border-radius:6px;">
+    cd personal-homepage<br>
+    npm install<br>
+    npm run dev<br>
+    <span style="color:var(--muted);">→ 浏览器访问 http://localhost:3000</span>
+  </div>
+</div>
+
+<p style="color:var(--muted);font-size:12px;text-align:center;margin-top:48px;">
+  报告生成于 2026-05-28 · 项目 PRISM v1.3.3 · 待完成个性化改编后更新评分
+</p>
+
+</body>
+</html>

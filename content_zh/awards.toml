@@ -1,27 +1,27 @@
 type = "card"
-title = "奖项"
-description = "我获得的荣誉与奖项。"
+title = "获奖情况"
+description = "竞赛获奖与荣誉。"
 
 [[items]]
-title = "示例奖项"
-subtitle = "颁发机构"
-date = "2025"
-content = "奖项说明。"
+title = "四川省大学生智能医学创新设计大赛"
+subtitle = "省级学科竞赛"
+date = "二等奖"
+content = "聚焦智能医学与信息技术交叉领域的省级学科竞赛。"
 
 [[items]]
-title = "示例奖项"
-subtitle = "颁发机构"
-date = "2024"
-content = "奖项说明。"
+title = "第二届\"智汇杯\"智能医学创新设计大赛"
+subtitle = "智能医学创新竞赛"
+date = "二等奖"
+content = "智能医学领域的创新设计大赛。"
 
 [[items]]
-title = "示例奖项"
-subtitle = "颁发机构"
-date = "2023"
-content = "奖项说明。"
+title = "英语四级（CET-4）"
+subtitle = "技能证书"
+date = "已通过"
+content = "备考六级中。"
 
 [[items]]
-title = "示例奖项"
-subtitle = "颁发机构"
-date = "2022"
-content = "奖项说明。"
+title = "HarmonyOS 应用开发者基础认证"
+subtitle = "华为开发者联盟"
+date = "已获证"
+content = "鸿蒙生态应用开发基础能力认证。"
